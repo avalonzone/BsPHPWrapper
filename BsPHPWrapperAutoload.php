@@ -7,7 +7,7 @@
  * @author Philip Tomson (Avalon) <philip.tomson@avalon-zone.be>
  * @author Cédric Singelé (Ced) <cedricsingele@gmail.com>
  * @copyright 2018 - 2019 Tomson Philip
- * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
+ * @license http://www.gnu.org/licenses/gpl.html GNU General Public License (GPL)
  * @note This program is distributed in the hope that it will be useful - WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
  * FITNESS FOR A PARTICULAR PURPOSE.
