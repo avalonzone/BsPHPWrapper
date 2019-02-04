@@ -14,4 +14,4 @@ For the moment :
  - No comment on function/class or usage information
  - No example
 
-I'll do my best to improve this aspect. I'll first try to create examples.
+I'll do my best to improve this aspect. I'll first try to create usage examples.
