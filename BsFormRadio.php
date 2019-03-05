@@ -49,7 +49,11 @@ class BsFormRadio extends BsElement
     public function render()
     {
         $this->strBuffer = "";
+        
         $this->strBuffer .= "<div class='checkbox'>";
+        if($this->_isHorizontal){
+            $this->strBuffer .= '<div class="col-md-2"></div>';
+        }
         $this->strBuffer .= "<label class='radio' " . $this->tooltip . ">";
         
         if($this->_isDisabled)

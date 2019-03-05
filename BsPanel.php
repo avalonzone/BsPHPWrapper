@@ -4,6 +4,7 @@ class BsPanel extends BsElement
     private $_header;
     private $_footer;
     private $_type;
+    private $_table;
     private $_headerSize;
     private $_footerSize;
     private $_rawBodyContent = "";
@@ -15,13 +16,14 @@ class BsPanel extends BsElement
     private $_collapseId = "";
     private $_collapseParentIdAsString = "";
     
-    public function __construct($header = false, $footer = false, $type = BsDefinition::PANEL_INFO, $headerSize = "", $footerSize = "")
+    public function __construct($header = false, $footer = false, $type = BsDefinition::PANEL_INFO, $headerSize = "", $footerSize = "", $table = false)
     {
         $this->_header = $header;
         $this->_footer = $footer;
         $this->_type = $type;
         $this->_headerSize = $headerSize;
         $this->_footerSize = $footerSize;
+        $this->_table = $table;
     }
     
     public function enableCollapse($startUncollapsed = false, $parentId = "")
@@ -97,9 +99,13 @@ class BsPanel extends BsElement
         {
             $this->strBuffer .= "<div id='" . $this->_collapseId . "' class='" . $this->_collapseClassString . "'>";
         }
-        
-        $this->strBuffer .= "<div class='panel-body' " . $this->_bodyId . ">";
-
+        /*4/02/19 Add IF*/
+        if(!$this->_table){
+            $this->strBuffer .= "<div class='panel-body' " . $this->_bodyId . ">";
+            $endDivBody = '</div>';
+        }else{
+            $endDivBody = '';
+        }
         $this->strBuffer .= $this->_rawBodyContent;
         
         foreach($this->elements as $element)
@@ -107,7 +113,8 @@ class BsPanel extends BsElement
             $this->strBuffer .= $element->__tostring();
         }
         
-        $this->strBuffer .= "</div>";
+        //$this->strBuffer .= "</div>"; 4/02/19
+        $this->strBuffer .= $endDivBody;
         
         if($this->_collapseId)
         {

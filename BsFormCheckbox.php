@@ -199,15 +199,22 @@ class BsFormCheckbox extends BsElement
     {
         $this->strBuffer = "";
         //Removed "has-feedback" -> no use if not required
-        $this->strBuffer .= "<div class='" . $this->_size . "'>";
-        
-        $this->strBuffer .= "<div class='" . $this->getIsInlineAsString() . "'>";
-        $this->strBuffer .= "<label>";
-        
-        $this->strBuffer .= "<input " . $this->tooltip . " " . $this->_validatorString . " type='checkbox' id='" . $this->_id . "' " . $this->getOptionsAsString() . " " . $this->getIsCheckedAsString(). " " . $this->getIsReadOnlyAsString() . " " . $this->getIsRequiredAsString() . " " . $this->getIsDisabledAsString() . ">";
-        
-        $this->strBuffer .= $this->_label;
-        $this->strBuffer .= "</label>";
+        $this->strBuffer .= "<div class='form-group " . $this->_size . "'>";
+        if($this->_isHorizontal){
+            $this->strBuffer .= "<div class=' '>";
+            $this->strBuffer .= "<label class ='control-label col-md-2' for='$this->_id'>$this->_label</label>";
+            $this->strBuffer .= "<div class='col-md-10'>";
+            $this->strBuffer .= "<input " . $this->tooltip . " " . $this->_validatorString . " type='checkbox' id='" . $this->_id . "' " . $this->getOptionsAsString() . " " . $this->getIsCheckedAsString(). " " . $this->getIsReadOnlyAsString() . " " . $this->getIsRequiredAsString() . " " . $this->getIsDisabledAsString() . ">";
+            $this->strBuffer .= "</div>";
+        }
+        else{
+            $this->strBuffer .= "<div class='" . $this->getIsInlineAsString() . "'>";
+            $this->strBuffer .= "<label>";
+            $this->strBuffer .= "<input " . $this->tooltip . " " . $this->_validatorString . " type='checkbox' id='" . $this->_id . "' " . $this->getOptionsAsString() . " " . $this->getIsCheckedAsString(). " " . $this->getIsReadOnlyAsString() . " " . $this->getIsRequiredAsString() . " " . $this->getIsDisabledAsString() . ">";
+            
+            $this->strBuffer .= $this->_label;
+            $this->strBuffer .= "</label>";
+        }
         $this->strBuffer .= "</div>";
         $this->strBuffer .= "</div>";
         

@@ -1,7 +1,7 @@
 <?php
 /**
  * BsPHPWrapper SPL autoloader.
- * PHP Version 7
+ * PHP Version 7.1.1
  * @package BsPHPWrapper
  * @link https://github.com/PHPMailer/PHPMailer/ The BsPHPWrapper GitHub project
  * @author Philip Tomson (Avalon) <philip.tomson@avalon-zone.be>

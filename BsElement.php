@@ -1,4 +1,10 @@
 <?php
+/**
+ * This Abstract class is the base class of all Bs classes.
+ * 
+ * Any change to this class should be well evaluated before proceeding
+ * 
+ */
 abstract class BsElement
 {
     protected $strBuffer = "";
@@ -11,6 +17,7 @@ abstract class BsElement
     protected $classes = array();
     protected $alignement = "";
     protected $elementId = "";
+    protected $_isHorizontal = false;
     
     public function setAsColumn($size, $offset = 0, $sizeClass = BsDefinition::COL_CLASS_MEDIUM)
     {
@@ -19,9 +26,19 @@ abstract class BsElement
         $this->addClass($sizeClass . "offset-" . $offset);
     }
     
-    public function addOption($key, $value)
+    public function addOption($key, $value = null)
     {
-        $this->options[strtolower($key)] = $value;   
+        if(is_array($key))
+        {
+            foreach ($key as $optionKey=>$optionValue)
+            {
+                $this->options[strtolower($optionKey)] = $optionValue;
+            }
+        }
+        else
+        {
+            $this->options[strtolower($key)] = $value;
+        }
     }
     
     public function addElementId($elementId)
@@ -86,12 +103,24 @@ abstract class BsElement
     
     abstract public function render();
     
+    public function setHorizontal(){
+        $this->_isHorizontal = true;
+    }
+    
     public function getOptionsAsString()
     {
         $strOptions = "";
         foreach ($this->options as $key=>$value)
         {
-            $strOptions .= " " . strtolower($key) . "='" . $value . "'";
+            if(preg_split("/'/", $value))
+            {
+                $strOptions .= ' ' . strtolower($key) . '="' . $value . '"';
+            }
+            else
+            {
+                $strOptions .= " " . strtolower($key) . "='" . $value . "'";
+            }
+            
         }
         return $strOptions;
     }

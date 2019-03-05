@@ -7,7 +7,7 @@
      private $_dataHeaders = array();
  	
  	// Require Array of Objects or Array of Array - go one level deep !
- 	public function __construct($id, $datas = array(), $headersOnly = false)
+ 	public function __construct($id, $datas = array(), $headersOnly = false, $footer = true)
  	{
  	    $this->addOption("id", $id);
  	    $this->_datas = $datas;
@@ -35,9 +35,10 @@
      	        $tbody = new BsTableTBody($this->_datas, $this->_dataHeaders);
      	        $this->addElement($tbody);
  	        }
- 	        
- 	        $tfoot = new BsTableTFoot($this->_dataHeaders);
- 	        $this->addElement($tfoot);
+ 	        if($footer){
+ 	          $tfoot = new BsTableTFoot($this->_dataHeaders);
+ 	          $this->addElement($tfoot);
+ 	        }
  	    }
  	    
  	}

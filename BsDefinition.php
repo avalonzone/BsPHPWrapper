@@ -125,6 +125,13 @@ abstract class BsDefinition
 	const COL_CLASS_MEDIUM = "col-md-";
 	const COL_CLASS_LARGE = "col-lg-";
 	
+	const PROGRESS_BAR_SUCCESS = "progress-bar-success";
+	const PROGRESS_BAR_INFO = "progress-bar-info";
+	const PROGRESS_BAR_WARNING = "progress-bar-warning";
+	const PROGRESS_BAR_DANGER = "progress-bar-danger";
+	const PROGRESS_BAR_STYLE_STRIPED = "progress-bar-striped";
+	const PROGRESS_BAR_STYLE_ACTIVE = "active";
+	
 	const LOGO_DEFENSE_GIF	= "/img/logo_defensie_s.gif";
 	const LOGO_DEFENSE		= "/img/logo_defense.png";
 	const LOGO_CCVC_50		= "/img/CCVC.png";

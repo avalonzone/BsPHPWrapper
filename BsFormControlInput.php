@@ -15,6 +15,7 @@ class BsFormControlInput extends BsElement
     private $_helpId;
     private $_validatorString;
     private $_value;
+    //private $_isHorizontal = false;
     private $_hasValidator = false;
     
     public function __construct(    $label, 
@@ -116,9 +117,14 @@ class BsFormControlInput extends BsElement
     {
         $this->strBuffer = "";
         $this->strBuffer .= "<div class='form-group has-feedback " . $this->_size . "'>";
-        
+        $controlLabel = "";
         if(strlen($this->_label) > 0){
-            $this->strBuffer .= "<label for='" . $this->_id . "'>" . $this->_label . "</label>";
+            if($this->_isHorizontal){
+                // TODO : Code Horizontal (ajout DIV)
+                $controlLabel = "class = 'col-md-2 control-label'";
+            }
+            
+            $this->strBuffer .= "<label $controlLabel for='" . $this->_id . "'>" . $this->_label . "</label>";
         }
         
         $stateString = "";
@@ -138,9 +144,11 @@ class BsFormControlInput extends BsElement
         
         $plainTextString = "";
         if($this->_plainText) { $plainTextString = "-plaintext"; }
-        
+        if($this->_isHorizontal){
+            $this->strBuffer .= '<div class = "col-md-10">';
+        }
         $this->strBuffer .= "<input " . $this->tooltip . " name='" . $this->_name . "' " . $this->_validatorString . " type='" . $this->_type . "' placeholder='" . $this->_placeHolder . "' class='form-control" . $plainTextString . " " . $this->_size . "' id='" . $this->_id . "' aria-describedby='" . $this->_helpId . "' " . $this->getOptionsAsString() . " " . $stateString . " " . $this->getValueAsString() . ">";
-        
+        if($this->_isHorizontal){$this->strBuffer .= '</div>';}
         if(strlen($this->_helpMessage) > 0 || $this->_hasValidator){
             $this->strBuffer .= "<small id='" . $this->_helpId . "' class='form-text text-muted'>" . $this->_helpMessage . "</small>";
         }
