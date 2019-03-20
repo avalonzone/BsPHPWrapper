@@ -87,6 +87,7 @@ abstract class BsDefinition
 	const FORMGROUP_SIZE_SMALL = "form-group-sm";
 	const FORMGROUP_SIZE_NORMAL = "";
 	const FORMGROUP_SIZE_LARGE = "form-group-lg";
+	const FORMGROUP_CLASS = "form-group";
 	
 	const TOOLTIP_LEFT		= "left";
 	const TOOLTIP_RIGHT		= "right";

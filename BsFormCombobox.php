@@ -11,6 +11,7 @@ class BsFormCombobox extends BsElement
     private $_isMultiple;
     private $_selectedKey;
     
+    
     public function __construct($name, $label, $items, $size, $isDisabled=false, $selectedKey = false)
     {
         $this->_name = $name;

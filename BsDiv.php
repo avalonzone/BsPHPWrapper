@@ -1,14 +1,7 @@
 <?php
 class BsDiv extends BsElement
 {
-    private $_type;
-    private $_headerSize;
-    private $_footerSize;
     private $_rawBodyContent = "";
-    private $_rawHeaderContent = "";
-    private $_rawFooterContent = "";
-    private $_classString = "";
-    private $_bodyId = "";
     
     public function __construct($id = null)
     {
@@ -31,7 +24,7 @@ class BsDiv extends BsElement
     public function render()
     {
         $this->strBuffer = "";
-        $this->strBuffer .= "<div " . $this->getOptionsAsString() . " class='" . $this->_classString . " " . $this->_type . "'>";
+        $this->strBuffer .= "<div " . $this->getOptionsAsString() . " class=' " . $this->getClassesAsString() . "'>";
 
         $this->strBuffer .= $this->_rawBodyContent;
         

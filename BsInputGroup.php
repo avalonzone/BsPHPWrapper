@@ -66,7 +66,7 @@ class BsInputGroup extends BsElement
         
         if(!$this->_isAfter)
         {
-            $this->strBuffer .= "<input type='text' class='form-control' placeholder='$this->_placeHolder'>";
+            $this->strBuffer .= "<input id='" . $this->_id . "' name='" . $this->_name . "' " . $this->getValueAsString() . " type='text' class='form-control' placeholder='" . $this->_placeHolder . "' " . $this->getOptionsAsString() . ">";
         }
         
         $this->strBuffer .= "</div>";

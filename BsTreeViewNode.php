@@ -20,9 +20,9 @@ class BsTreeViewNode
         $this->nodeDataProperties[$key] = $value;
     }
     
-    public function addTag(string $tag)
+    public function addTag(string $tag, string $cssClass = "badge")
     {
-        $this->tags[] = $tag;
+        $this->tags[] = (object)[text=>$tag, cssClass=>$cssClass];
     }
     
     public function addNode(BsTreeViewNode $node)

@@ -3,6 +3,7 @@ class BsLink extends BsElement
 {
     private $_name;
     private $_target;
+    //private $_classString = "";
     public $isDisabled;
     
     public function __construct($name, $target = "#", $isDisabled = false)
@@ -18,6 +19,6 @@ class BsLink extends BsElement
         if($this->isDisabled){
         	$this->_target = '#';
         }
-        $this->strBuffer .= "<a href='" . $this->_target . "'>" . $this->_name . "</a>";
+        $this->strBuffer .= "<a href='" . $this->_target . "' class='" . $this->getClassesAsString() . "' " . $this->getOptionsAsString() . ">" . $this->_name . "</a>";
     }
 }

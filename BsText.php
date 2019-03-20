@@ -10,7 +10,7 @@ class BsText extends BsElement
 		
 		public function render()
 		{
-		    $this->strBuffer = "<p>";
+		    $this->strBuffer = "<p " . $this->getOptionsAsString() . " class='" . $this->getClassesAsString() . "'>";
 			$this->strBuffer .= $this->_text;
 			$this->strBuffer .= "</p>";
 		}		
